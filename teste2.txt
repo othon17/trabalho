@@ -1,0 +1,119 @@
+// C++ code
+//
+
+//led botao
+
+int portLed=8;
+int portButton=6;
+int estadoBot=0;
+void setup()
+{
+  pinMode(portLed, OUTPUT);
+  pinMode (portButton, INPUT);
+}
+
+void loop()
+{
+ estadoBot=digitalRead(portButton);
+  if(estadoBot== HIGH)
+  {
+    digitalWrite (portLed, HIGH);
+  }else
+  {
+  digitalWrite (portLed, LOW);
+  }
+}
+
+
+
+
+// C++ code
+//
+
+// potenciometro
+
+int portaLed=7;
+int portaPot=A1;
+void setup() {
+  Serial.begin(9600);
+  pinMode(portaLed,OUTPUT);
+}
+
+void loop() {
+  int valPotenciometro=analogRead(portaPot);
+  Serial.println(valPotenciometro);
+    if(valPotenciometro<200)
+  {
+    digitalWrite(portaLed,HIGH);
+  }else if((valPotenciometro>=200)&&(valPotenciometro<600))
+  {
+    digitalWrite(portaLed,HIGH);
+    delay(1000);
+    digitalWrite(portaLed,LOW);
+    delay(1000);
+  }else
+  {
+    digitalWrite(portaLed,LOW);
+  }
+}
+
+//2 leds piscando 
+
+int LED =5;
+int LED2 =7;
+
+void setup()
+{
+  pinMode(LED, OUTPUT);
+ pinMode(LED2, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(LED,HIGH);
+  delay (3000);
+  
+  digitalWrite(LED, LOW);
+  delay(2000);
+  
+   digitalWrite(LED2,LOW);
+  delay (1000);
+  
+  digitalWrite(LED2, HIGH);
+  delay(1000);
+ 
+}
+
+
+// pot e 2 led
+
+// C++ code
+//
+void setup()
+{
+  pinMode(A0, INPUT);
+  pinMode(12, OUTPUT);
+  pinMode(8, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int leitura = analogRead(A0);
+  Serial.println(leitura);
+  if(leitura<=500)
+  {
+    digitalWrite(12, HIGH);
+    delay(500);
+    digitalWrite(12, LOW);
+    delay(500);
+  }else
+  {
+    digitalWrite(8, HIGH);
+    delay(500);
+    digitalWrite(8, LOW);
+    delay(500);
+  }
+    
+  
+}
