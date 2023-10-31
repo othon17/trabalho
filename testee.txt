@@ -1,0 +1,58 @@
+// C++ code
+//
+
+//led botao
+
+int portLed=8;
+int portButton=6;
+int estadoBot=0;
+void setup()
+{
+  pinMode(portLed, OUTPUT);
+  pinMode (portButton, INPUT);
+}
+
+void loop()
+{
+ estadoBot=digitalRead(portButton);
+  if(estadoBot== HIGH)
+  {
+    digitalWrite (portLed, HIGH);
+  }else
+  {
+  digitalWrite (portLed, LOW);
+  }
+}
+
+
+
+
+// C++ code
+//
+
+// potenciometro
+
+int portaLed=7;
+int portaPot=A1;
+void setup() {
+  Serial.begin(9600);
+  pinMode(portaLed,OUTPUT);
+}
+
+void loop() {
+  int valPotenciometro=analogRead(portaPot);
+  Serial.println(valPotenciometro);
+    if(valPotenciometro<200)
+  {
+    digitalWrite(portaLed,HIGH);
+  }else if((valPotenciometro>=200)&&(valPotenciometro<600))
+  {
+    digitalWrite(portaLed,HIGH);
+    delay(1000);
+    digitalWrite(portaLed,LOW);
+    delay(1000);
+  }else
+  {
+    digitalWrite(portaLed,LOW);
+  }
+}
